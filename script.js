@@ -96,17 +96,17 @@
     const message = String(data.get('message')).trim();
     if (!name || !message) { status.textContent = 'Please enter your name and a message.'; return; }
     inquiryText = `Hello First X&XI,\n\n${message}\n\nName: ${name}\nEmail: ${data.get('email')}\nInterest: ${data.get('interest')}\nSport / organization: ${data.get('sport') || 'Not specified'}`;
-    const url = `mailto:${window.SITE_CONTACT.email}?subject=${encodeURIComponent(`Website inquiry — ${data.get('interest')}`)}&body=${encodeURIComponent(inquiryText)}`;
+    const url = `mailto:info@firstxandxi.com?subject=${encodeURIComponent(`Website inquiry — ${data.get('interest')}`)}&body=${encodeURIComponent(inquiryText)}`;
     const fallback = document.querySelector('#email-fallback');
     fallback.href = url;
     fallback.hidden = false;
     document.querySelector('#copy-inquiry').hidden = false;
-    status.textContent = `Your email draft is ready. Send it from your email app to complete your inquiry. If no app opens, copy the text and email ${window.SITE_CONTACT.email}.`;
+    status.textContent = `Your email draft is ready. Send it from your email app to complete your inquiry. If no app opens, copy the text and email info@firstxandxi.com.`;
     window.location.href = url;
   });
   document.querySelector('#copy-inquiry').addEventListener('click', async () => {
-    try { await navigator.clipboard.writeText(inquiryText); status.textContent = `Inquiry copied. Paste it into an email to ${window.SITE_CONTACT.email}.`; }
-    catch (_) { status.textContent = `Copy is unavailable in this browser. You can email your message directly to ${window.SITE_CONTACT.email}.`; }
+    try { await navigator.clipboard.writeText(inquiryText); status.textContent = `Inquiry copied. Paste it into an email to info@firstxandxi.com.`; }
+    catch (_) { status.textContent = `Copy is unavailable in this browser. You can email your message directly to info@firstxandxi.com.`; }
   });
   const dialog = document.querySelector('#privacy-dialog');
   document.querySelector('#privacy-button').addEventListener('click', () => dialog.showModal());
