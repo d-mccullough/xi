@@ -1,5 +1,11 @@
-.DS_Store
-.vercel/
 node_modules/
+dist/
+.vercel/
 .env
 .env.*
+!.env.example
+public/admin/
+public/script.js
+src/generated-data.json
+tina/__generated__/
+.DS_Store
